@@ -1,12 +1,9 @@
-<button pButton type="button" label="Submit" class="p-button-text"></button>
-<button pButton type="button" icon="pi pi-check" class="p-button-text"></button>
-<button pButton type="button" label="Cancel" icon="pi pi-times" class="p-button-text"></button>
-<button pButton type="button" label="Search" icon="pi pi-search" iconPos="right" class="p-button-text"></button>
+<app-navbar></app-navbar>
 
-<br>
+<div class="container mt-3">
+  <router-outlet></router-outlet>
+</div>
 
-<button pButton type="button" class="p-button-warning">CUIDADO</button>
-<br>
+<hr>
 
-<button pButton type="button" label="Click" (click)="handleClick(printear())"></button>
-<p-button label="Click" (onClick)="handleClick(printear())"></p-button>
+<app-formulario></app-formulario>
