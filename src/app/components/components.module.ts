@@ -5,10 +5,13 @@ import { NavbarComponent } from './navbar/navbar.component';
 import {MenubarModule} from 'primeng/menubar';
 import { InputTextModule } from 'primeng/inputtext';
 import { ButtonModule } from 'primeng/button';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import {DropdownModule} from 'primeng/dropdown';
+
 import { FormularioComponent } from './formulario/formulario.component';
-
+import { FormsModule } from '@angular/forms';
+import {DropdownModule} from 'primeng/dropdown';
+import { BrowserModule } from '@angular/platform-browser';
 
 @NgModule({
   declarations: [
@@ -19,9 +22,12 @@ import { FormularioComponent } from './formulario/formulario.component';
   imports: [
     CommonModule,
     MenubarModule,
+    BrowserAnimationsModule,
     InputTextModule,
     ButtonModule,
     DropdownModule,
+    FormsModule,
+    BrowserModule,
 
   ],
   exports:[
