@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'fxr';
+  handleClick(event: any) {
+    console.log(event);
+};
+  printear(){
+    console.log("hice algo")
+  }
 }
