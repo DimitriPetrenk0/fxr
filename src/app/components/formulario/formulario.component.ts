@@ -19,6 +19,7 @@ export class FormularioComponent implements OnInit {
   public formParent: FormGroup = new FormGroup({});
 
 
+
   ngOnInit(): void {
 
     this.initFormParent()
@@ -35,12 +36,15 @@ export class FormularioComponent implements OnInit {
         no_factura: new FormControl(''),
         fecha_factura: new FormControl(''),
         saldo: new FormControl(''),
+
+
         cond_pago: new FormControl(''),
         monto: new FormControl(''),
         no_oc: new FormControl(''),
         detalle: new FormArray([])
       }
     )
+
   }
 
 

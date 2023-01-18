@@ -28,7 +28,7 @@ import { BrowserModule } from '@angular/platform-browser';
     DropdownModule,
     FormsModule,
     BrowserModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
 
   ],
   exports:[
