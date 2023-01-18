@@ -1,12 +1,37 @@
 
 <div class="card">
 
-  <h5>Tipo Anticipo</h5>
   <p-dropdown
   [options]="tipo_anticipo"
-  placeholder="Seleccionar tipo"
+  placeholder="Tipo Anticipo"
   optionLabel="name"
   [showClear]="true"
 ></p-dropdown>
 
+<hr>
+<h3>Anticipo</h3>
+
+
+    <span class="p-float-label">
+      <input type="text" id="float-input"  pInputText [(ngModel)]="cond_pago">
+      <label for="float-input">Cond Pago</label>
+    </span>
+
+    <br>
+
+    <span class="p-float-label">
+      <input type="text" id="float-input"  pInputText [(ngModel)]="monto">
+      <label for="float-input">Monto</label>
+    </span>
+
+    <br>
+
+   <span class="p-float-label">
+    <input type="text" id="float-input"  pInputText [(ngModel)]="no_oc">
+    <label for="float-input">No O.C</label>
+  </span>
+
+
 </div>
+<br>
+<p-button label="Solicitar fondos"></p-button>
