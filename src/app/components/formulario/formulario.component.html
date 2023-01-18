@@ -9,17 +9,53 @@
 
       <form [formGroup]="formParent" class="form-parent">
 
+
+
+        <div class="form-field">
+          <label for="opciones">Tipo de anticipo: </label>
+          <select name="opciones" placeholder="Tipo Anticipo"  formControlName="tipo_anticipo" required>
+            <option value="Tipo 1">Tipo 1</option>
+            <option value="Tipo 2">Tipo 2</option>
+            <option value="Tipo 3">Tipo 3</option>
+          </select>
+
+        </div>
+        <br>
+        <div class="form-field">
+          <input type="text" placeholder="Período Afect" formControlName="periodo_afect" required>
+        </div>
+
+        <div class="form-field">
+          <input type="date" formControlName="fecha" required>
+        </div>
+
+        <div class="form-field">
+          <input type="text" placeholder="Número Prov" formControlName="no_prov" required>
+        </div>
+
+        <div class="form-field">
+            <input type="text" placeholder="Número Factura"  formControlName="no_factura" required>
+        </div>
+
+        <div class="form-field">
+          <input type="date" formControlName="fecha_factura" required>
+        </div>
+
           <div class="form-field">
-              <input type="text" placeholder="Número Factura" formControlName="no_factura">
+            <input type="text" placeholder="Saldo" formControlName="saldo" required>
+          </div>
+          <hr>
+
+          <h5>Anticipo</h5>
+          <br>
+          <div class="form-field">
+            <input type="text" placeholder="Cond Pago" formControlName="cond_pago" required>
           </div>
           <div class="form-field">
-            <input type="text" placeholder="Período" formControlName="periodo_afect">
+            <input type="text" placeholder="Monto" formControlName="monto" required>
           </div>
           <div class="form-field">
-            <input type="text" placeholder="Número Prov" formControlName="No_prov">
-          </div>
-          <div class="form-field">
-            <input type="text" placeholder="Saldo" formControlName="saldo">
+            <input type="text" placeholder="No O.C" formControlName="no_oc" required>
           </div>
           <button (click)="addDetalle()">Agregar Detalle</button>
           <div class="form-grid" formArrayName="detalle">
@@ -30,21 +66,22 @@
 
                       <h5>Detalle</h5>
                       <div class="form-field">
-                          <input type="text" placeholder="No" formControlName="no_detalle">
+                          <input type="text" placeholder="No" formControlName="no_detalle" required>
                       </div>
 
                       <div class="form-field">
-                          <input type="text" placeholder="Cantidad" formControlName="cantidad_detalle">
+                          <input type="text" placeholder="Cantidad" formControlName="cantidad_detalle" required>
                       </div>
 
                       <div class="form-field">
-                          <input type="text" placeholder="Precio Unit" formControlName="precioUnit_detalle">
+                          <input type="text" placeholder="Precio Unit" formControlName="precioUnit_detalle" required>
                       </div>
 
                       <div class="form-field">
-                        <input type="text" placeholder="Monto" formControlName="monto_detalle">
+                        <input type="text" placeholder="Monto" formControlName="monto_detalle" required>
                       </div>
                       <button (click)="removeDetalle()">Quitar Detalle</button>
+
 
                   </div>
 
@@ -63,4 +100,4 @@
   </div>
 </div>
 <br>
-<p-button label="Solicitar fondos"></p-button>
+<p-button (onClick)="mostrar()" label="Solicitar fondos"></p-button>

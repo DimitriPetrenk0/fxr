@@ -28,10 +28,16 @@ export class FormularioComponent implements OnInit {
   initFormParent(): void {
     this.formParent = new FormGroup(
       {
-        no_factura: new FormControl(''),
+        tipo_anticipo: new FormControl(''),
         periodo_afect: new FormControl(''),
-        No_prov: new FormControl(''),
+        fecha: new FormControl(''),
+        no_prov: new FormControl(''),
+        no_factura: new FormControl(''),
+        fecha_factura: new FormControl(''),
         saldo: new FormControl(''),
+        cond_pago: new FormControl(''),
+        monto: new FormControl(''),
+        no_oc: new FormControl(''),
         detalle: new FormArray([])
       }
     )
@@ -47,6 +53,9 @@ export class FormularioComponent implements OnInit {
         monto_detalle: new FormControl('')
       }
     )
+  }
+  mostrar(): void{
+    console.log(this.formParent.value )
   }
 
 
