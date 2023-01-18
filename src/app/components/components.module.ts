@@ -9,7 +9,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 import { FormularioComponent } from './formulario/formulario.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import {DropdownModule} from 'primeng/dropdown';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -28,6 +28,7 @@ import { BrowserModule } from '@angular/platform-browser';
     DropdownModule,
     FormsModule,
     BrowserModule,
+    ReactiveFormsModule
 
   ],
   exports:[
