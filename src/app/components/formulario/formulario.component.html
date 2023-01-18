@@ -1,37 +1,66 @@
 
-<div class="card">
-
-  <p-dropdown
-  [options]="tipo_anticipo"
-  placeholder="Tipo Anticipo"
-  optionLabel="name"
-  [showClear]="true"
-></p-dropdown>
 
 <hr>
 <h3>Anticipo</h3>
 
-
-    <span class="p-float-label">
-      <input type="text" id="float-input"  pInputText [(ngModel)]="cond_pago">
-      <label for="float-input">Cond Pago</label>
-    </span>
-
-    <br>
-
-    <span class="p-float-label">
-      <input type="text" id="float-input"  pInputText [(ngModel)]="monto">
-      <label for="float-input">Monto</label>
-    </span>
-
-    <br>
-
-   <span class="p-float-label">
-    <input type="text" id="float-input"  pInputText [(ngModel)]="no_oc">
-    <label for="float-input">No O.C</label>
-  </span>
+<div class="main-wrapper">
+  <div class="wrapper">
 
 
+      <form [formGroup]="formParent" class="form-parent">
+
+          <div class="form-field">
+              <input type="text" placeholder="Número Factura" formControlName="no_factura">
+          </div>
+          <div class="form-field">
+            <input type="text" placeholder="Período" formControlName="periodo_afect">
+          </div>
+          <div class="form-field">
+            <input type="text" placeholder="Número Prov" formControlName="No_prov">
+          </div>
+          <div class="form-field">
+            <input type="text" placeholder="Saldo" formControlName="saldo">
+          </div>
+          <button (click)="addDetalle()">Agregar Detalle</button>
+          <div class="form-grid" formArrayName="detalle">
+
+              <div class="form-field" *ngFor="let detalle of getCtrl('detalle',formParent).controls;index as formChild">
+
+                  <div class="form-block" [formGroupName]="formChild">
+
+                      <h5>Detalle</h5>
+                      <div class="form-field">
+                          <input type="text" placeholder="No" formControlName="no_detalle">
+                      </div>
+
+                      <div class="form-field">
+                          <input type="text" placeholder="Cantidad" formControlName="cantidad_detalle">
+                      </div>
+
+                      <div class="form-field">
+                          <input type="text" placeholder="Precio Unit" formControlName="precioUnit_detalle">
+                      </div>
+
+                      <div class="form-field">
+                        <input type="text" placeholder="Monto" formControlName="monto_detalle">
+                      </div>
+                      <button (click)="removeDetalle()">Quitar Detalle</button>
+
+                  </div>
+
+              </div>
+
+          </div>
+
+      </form>
+
+  </div>
+  <div class="wrapper">
+      <div>
+        <b>Json del formulario: </b>
+      </div>
+      <pre>{{formParent.value | json}}</pre>
+  </div>
 </div>
 <br>
 <p-button label="Solicitar fondos"></p-button>

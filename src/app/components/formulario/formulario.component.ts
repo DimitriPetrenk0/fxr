@@ -1,9 +1,8 @@
-import { Component } from '@angular/core';
-import { SelectItem } from 'primeng/api';
 
-interface Tipo_anticipo {
-  name: string,
-}
+
+import { FormGroup, FormControl, FormArray } from '@angular/forms';
+import { Component,OnInit } from '@angular/core';
+
 
 
 
@@ -14,30 +13,57 @@ interface Tipo_anticipo {
 })
 
 
-export class FormularioComponent {
+export class FormularioComponent implements OnInit {
 
-  tipo_anticipo: Tipo_anticipo[];
 
-  items: SelectItem[];
-  item: string;
+  public formParent: FormGroup = new FormGroup({});
 
-  //texto plano
-  cond_pago: string;
-  monto: string;
-  no_oc:string;
 
-  constructor() {
-    this.items = [];
-    for (let i = 0; i < 5; i++) {
-      this.items.push({ label: 'Item ' + i, value: 'Item ' + i });
-    }
+  ngOnInit(): void {
 
-    this.tipo_anticipo = [
-      { name: 'Tipo 1' },
-      { name: 'Tipo 2' },
-      { name: 'Tipo 3' },
-    ];
-    console.log(this.tipo_anticipo);
+    this.initFormParent()
+
+  }
+
+  initFormParent(): void {
+    this.formParent = new FormGroup(
+      {
+        no_factura: new FormControl(''),
+        periodo_afect: new FormControl(''),
+        No_prov: new FormControl(''),
+        saldo: new FormControl(''),
+        detalle: new FormArray([])
+      }
+    )
+  }
+
+
+  initFormDetalle(): FormGroup {
+    return new FormGroup(
+      {
+        no_detalle: new FormControl(''),
+        cantidad_detalle: new FormControl(''),
+        precioUnit_detalle: new FormControl(''),
+        monto_detalle: new FormControl('')
+      }
+    )
+  }
+
+
+  addDetalle(): void {
+    const nuevo_detalle = this.formParent.get('detalle') as FormArray;
+    nuevo_detalle.push(this.initFormDetalle())
+  }
+
+  //TODO arreglar removeDetalle, eimina siempre el ultimo de la lista y no el seleccionado
+
+  removeDetalle(): void {
+    const detalle_a_remover = this.formParent.get('detalle') as FormArray;
+    detalle_a_remover.removeAt(1)
+  }
+
+  getCtrl(key: string, form: FormGroup): any {
+    return form.get(key)
   }
 
 
